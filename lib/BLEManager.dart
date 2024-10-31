@@ -199,14 +199,14 @@ class BleManager with ChangeNotifier {
   }
 
   void updateLedGlow(double glowValue, bool isSunset) {
-    int brightness = (glowValue * 99).toInt();
+    int brightness = (glowValue * 100).toInt();
     String brightnessHex = brightness.toRadixString(16).padLeft(2, '0');
     String command = isSunset ? '5c0701${brightnessHex}0000000000' : '5c0601${brightnessHex}0000000000';
     sendBleCommand(command);
   }
 
   void updateTintLevel(double tintValue) {
-    int tint = (tintValue * 99).toInt();
+    int tint = (tintValue * 100).toInt();
     String tintHex = tint.toRadixString(16).padLeft(2, '0');
     String command = '5c0401${tintHex}0000000000';
     sendBleCommand(command);
