@@ -206,7 +206,7 @@ class BleManager with ChangeNotifier {
   }
 
   void updateTintLevel(double tintValue) {
-    int tint = (tintValue * 100).toInt();
+    int tint = (tintValue * 111).toInt();
     String tintHex = tint.toRadixString(16).padLeft(2, '0');
     String command = '5c0401${tintHex}0000000000';
     sendBleCommand(command);
